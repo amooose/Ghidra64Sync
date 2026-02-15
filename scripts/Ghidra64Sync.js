@@ -16,7 +16,7 @@ console.log("Ghidra64Sync Started.");
 
 function syncWithGhidra(syncOffsetOnly) {
     var ramPc = cpu.pc;
-    var romAddr = (ramPc + ROM_OFFSET) >>> 0;
+    var romAddr = (ramPc + ROM_OFFSET);
     var addrStr = "0x" + romAddr.toString(16) + "\n";
     try {
         var client = new Socket();
