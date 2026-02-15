@@ -9,10 +9,11 @@ Features:
 Note: This script is configured to work fully with **Project64 Dev-4.0.0-6642-38986fe** [(Wayback Mirror)](https://web.archive.org/web/20260215041359/https://www.pj64-emu.com/file/project64-win32-dev-4-0-0-6642-38986fe/)  
 (It will partially work with others, just not the live syncing when selecting instructions)  
 1. Drag and merge the scripts and config folder into the root folder of your Project64 directory  
-2. Add a script directory in Ghidra and set it to Project64's Scripts folder  
-3. Run Ghidra via **pyghidraRun.bat** in your Ghidra install folder within the "support" folder  
-4. In Ghidra's script manager, run "Ghidra64Sync.py"  
-5. Load a ROM in Project64, and run Ghidra64Sync.js in Project64's Script window  
+2. Add a script directory in Ghidra and set it to Project64's Scripts folder
+3. Install frida via `pip install frida` on the python version your PyGhidra uses
+4. Run Ghidra via **pyghidraRun.bat** in your Ghidra install folder within the "support" folder  
+5. In Ghidra's script manager, run "Ghidra64Sync.py"  
+6. Load a ROM in Project64, and run Ghidra64Sync.js in Project64's Script window  
 
 # Usage
 - Debugger breaks and stepping will be synced to Ghidra, as well if you click a instruction in PJ64, it will jump to that instruction in Ghidra.
