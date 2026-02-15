@@ -160,11 +160,11 @@ class PJ64ActionWrapper:
 jump_now = PJ64ActionWrapper("Jump in Project64", "Project64", is_toggle=False)
 tool.addAction(jump_now.action)
 
-bkp_add = PJ64ActionWrapper("Breakpoint", "Project64", is_toggle=False, subname="Add Breakpoint")
-tool.addAction(bkp_add.action)
+#bkp_add = PJ64ActionWrapper("Breakpoint", "Project64", is_toggle=False, subname="Add Breakpoint")
+#tool.addAction(bkp_add.action)
 
-bkp_rem = PJ64ActionWrapper("Breakpoint", "Project64", is_toggle=False, subname="Remove Breakpoint")
-tool.addAction(bkp_rem.action)
+#bkp_rem = PJ64ActionWrapper("Breakpoint", "Project64", is_toggle=False, subname="Remove Breakpoint")
+#tool.addAction(bkp_rem.action)
 
 auto_sync = PJ64ActionWrapper("Show in Memory", "Project64", is_toggle=False)
 tool.addAction(auto_sync.action)
@@ -196,7 +196,10 @@ class GhidraServer:
                     if instruct == "syncoffset":
                         global ROM_OFFSET
                         ROM_OFFSET = int(idata)
-                        print("Synced Offset from gameConfig file: 0x{:08x}".format(ROM_OFFSET))
+                        print("Synced Offset from gameConfig file: {}0x{:08X}".format(
+                            "-" if ROM_OFFSET < 0 else "",
+                            abs(ROM_OFFSET)
+                        ))
                     if "jump" in instruct:
                         target = toAddr(idata)
                         if(instruct == "jumpno"):
