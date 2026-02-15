@@ -240,7 +240,7 @@ class GhidraServer:
                 except socket.timeout:
                     continue
 
-                data = conn.recv(4096).strip()
+                data = conn.recv(1024).strip()
                 if data:
 
                     if data.upper() == "STOP":
