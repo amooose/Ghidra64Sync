@@ -14,6 +14,10 @@ Note: This script is configured to work fully with **Project64 Dev-4.0.0-6642-38
 4. In Ghidra's script manager, run "Ghidra64Sync.py"  
 5. Load a ROM in Project64, and run Ghidra64Sync.js in Project64's Script window  
 
+# Usage
+- Debugger breaks and stepping will be synced to Ghidra, as well if you click a instruction in PJ64, it will jump to that instruction in Ghidra.
+- Right clicking an instruction in Ghidra will present a "Project64" option, which will let you jump to the instruction in PJ64, view the instruction in memory, and turn on/off syncing
+
 # Configuration
 - If the file in Ghidra differs from the file in Project64 by some offset, you can set a per-game offset in `Config/ghidraSync/perGameConfig.json` (The offset is applied as follows PJ64_Address+OFFSET --> Ghidra Address)
 - Listen/Server ports can be configured in `Config/ghidraSync/config.txt`
