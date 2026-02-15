@@ -16,15 +16,30 @@ from java.io import PrintWriter
 from java.net import ConnectException
 import subprocess
 import threading
-import sys
+import sys, os
 import time
 import __main__
 
-PJ64SYNC_LISTENER_PORT = 12345
-PJ64SYNC_SENDER_PORT = 12346
 ROM_OFFSET = 0x0
 should_sync = True
 
+config_dir = getSourceFile().getParentFile().getParentFile().getAbsolutePath()+"\\Config\\ghidraSync\\config.txt"
+config = {}
+
+with open(config_dir, "r") as f:
+    for line in f:
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue  # skip blanks/comments
+        key, value = line.split("=", 1)
+        config[key.strip()] = value.strip()
+
+PJ64SYNC_LISTENER_PORT = int(config["GHIDRA_PORT"])
+PJ64SYNC_SENDER_PORT = int(config["COMMAND_PORT"])
+
+print("Config directory:", config_dir)
+print("Listener Port:", PJ64SYNC_LISTENER_PORT)
+print("Sender Port:", PJ64SYNC_SENDER_PORT)
 
 def storeVar(var):
     MAP_NAME = "THREAD_KILL_SIGNAL"
