@@ -5,12 +5,21 @@ import time
 import socket
 import threading
 from ghidra.util.exception import CancelledException
+
+config_dir = getSourceFile().getParentFile().getParentFile().getAbsolutePath()+"\\Config\\ghidraSync\\config.txt"
+config = {}
+with open(config_dir, "r") as f:
+    for line in f:
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue  # skip blanks/comments
+        key, value = line.split("=", 1)
+        config[key.strip()] = value.strip()
+PJ64SYNC_LISTENER_PORT = int(config["GHIDRA_PORT"])
+
 running = True
-
 localhost = "127.0.0.1"
-#pid = get_pid_by_name("Project64.exe")  # your process id
 session = frida.attach("Project64.exe")
-
 
 script = session.create_script("""
 var base = Process.getModuleByName("comctl32.dll").base;
@@ -43,7 +52,7 @@ def checkHealth():
             return False
     return True
 
-def send_cmd(cmd, port=12345):
+def send_cmd(cmd, port=PJ64SYNC_LISTENER_PORT):
     DEST_IP = localhost
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
