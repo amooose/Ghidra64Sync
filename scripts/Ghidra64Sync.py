@@ -1,7 +1,7 @@
 # @runtime Jython
 import socket
 import threading
-import time, subprocess, sys, os
+import time, subprocess
 from ghidra.util.task import TaskMonitor
 from java.lang import Runnable
 from javax.swing import SwingUtilities
@@ -63,7 +63,7 @@ runScript("Ghidra64Sync_MemMng.py")
 
 
 def pjprint(msg):
-    print("[PJ64DebugSync] " + msg)
+    print("[Ghidra64Sync] " + msg)
 
 def send_cmd(cmd,port=PJ64SYNC_LISTENER_PORT,optinfo=None):
     client = None
@@ -78,7 +78,7 @@ def send_cmd(cmd,port=PJ64SYNC_LISTENER_PORT,optinfo=None):
                 cmd = cmd + " | " + str(optinfo)
             pjprint("Sent command to Project64: " + cmd)
     except (Exception, ConnectException, socket.error) as e:
-        pjprint("PJ64 GhidraSync not reachable yet, waiting for connection...")
+        pjprint("PJ64 Ghidra64Sync not reachable yet, waiting for connection...")
     finally:
         if client:
             client.close()
