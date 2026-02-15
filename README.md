@@ -3,7 +3,7 @@ Sync the debugger in Project64 with Ghidra
 Features:  
 - Live instruction syncing when manually selecting, stepping, or hitting a breakpoint in PJ64
 - Per-Game Offset so decompressed roms in Ghidra can line up with compressed roms in PJ64
-- ![Demo](https://i.imgur.com/LLxPv1F.gif)
+![Demo](https://i.imgur.com/LLxPv1F.gif)
 
 # Instructions
 Note: This script is configured to work fully with **Project64 Dev-4.0.0-6642-38986fe** [(Wayback Mirror)](https://web.archive.org/web/20260215041359/https://www.pj64-emu.com/file/project64-win32-dev-4-0-0-6642-38986fe/)  
