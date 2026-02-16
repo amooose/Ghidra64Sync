@@ -10,7 +10,7 @@ Note: This script is configured to work fully with **Project64 Dev-4.0.0-6642-38
 (It will partially work with others, just not the live syncing when selecting instructions)  
 1. Drag and merge the scripts and config folder into the root folder of your Project64 directory  
 2. Add a script directory in Ghidra and set it to Project64's Scripts folder
-3. Install frida via `pip install frida` on the python version your PyGhidra uses
+3. Install frida via `pip install frida` on the python version your PyGhidra uses (you can check the version by typing py in cmd)  
 4. Run Ghidra via **pyghidraRun.bat** in your Ghidra install folder within the "support" folder  
 5. In Ghidra's script manager, run "Ghidra64Sync.py"  
 6. Load a ROM in Project64, and run Ghidra64Sync.js in Project64's Script window  
